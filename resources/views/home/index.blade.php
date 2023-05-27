@@ -15,6 +15,16 @@
 <body>
 
     <h1>Home</h1>
+    @auth
+        <p>Bienvenido {{auth()->user()->name ?? auth()->user()->username}}!, estás autenticado a la página</p>
+        <p>
+            <a href="/logout">Logout</a>
+        </p>
+    @endauth
+
+    @guest
+        <p>Para ver el contenido <a href="/login"> inicia sesión </a></p>
+    @endguest
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
